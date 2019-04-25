@@ -1,5 +1,5 @@
 #include<stdio.h>
-main()
+int main()
 {
 int i,no,p[10]={1,2,3,4,5,6,7,8,9,10},min,k=1,burst=0;
 int btime[10],tem,j,arrival[10],wtime[10],ttime[10],ta=0,total=0;
@@ -26,12 +26,12 @@ if(arrival[i]<arrival[j])
 tem=p[j];
 p[j]=p[i];
 p[i]=tem;
-tem=at[j];
+tem=arrival[j];
 arrival[j]=arrival[i];
 arrival[i]=tem;
 tem=btime[j];
 btime[j]=btime[i];
-btime[i]=temp;
+btime[i]=tem;
 }
 }
 }
@@ -41,7 +41,7 @@ Execution time and Arrival Time
 Arrival time <= Execution time
 */
  
-for(j=0;j<n;j++)
+for(j=0;j<no;j++)
 {
 burst=burst+btime[j];
 min=btime[k];
@@ -65,8 +65,8 @@ k++;
 wtime[0]=0;
 for(i=1;i<no;i++)
 {
-tot=tot+bt[i-1];
-wtime[i]=tot-arrival[i];
+total=total+btime[i-1];
+wtime[i]=total-arrival[i];
 waitsum=waitsum+wtime[i];
 }
  
